@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cube-section {
+    min-height: 100vh;
+    background: #111;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.cube-section h1 {
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+
+/* Cube ka outer area */
+
+.cube-container {
+    width: 600px;
+    height: 400px;
+    margin: auto;
+
+    perspective: 1200px;
+}
+
+
+/* Actual Cube */
+
+.cube {
+    width: 600px;
+    height: 400px;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition: transform 1.2s ease-in-out;
+}
+
+
+/* Cube ki har side */
+
+.cube-face {
+    width: 600px;
+    height: 400px;
+
+    position: absolute;
+
+    overflow: hidden;
+
+    backface-visibility: hidden;
+}
+
+
+/* Image */
+
+.cube-face img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* Dark overlay */
+
+.cube-face::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+
+/* Text */
+
+.cube-content {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+
+    color: white;
+}
+
+
+.cube-content h2 {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+
+.cube-content p {
+    font-size: 18px;
+}
+
+
+/* FRONT */
+
+.front {
+    transform: translateZ(300px);
+}
+
+
+/* RIGHT */
+
+.right {
+    transform: rotateY(90deg) translateZ(300px);
+}
+
+
+/* BACK */
+
+.back {
+    transform: rotateY(180deg) translateZ(300px);
+}
+
+
+/* LEFT */
+
+.left {
+    transform: rotateY(-90deg) translateZ(300px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .cube-container {
+        width: 90vw;
+        height: 60vw;
+        max-height: 400px;
+    }
+
+    .cube {
+        width: 90vw;
+        height: 60vw;
+        max-height: 400px;
+    }
+
+    .cube-face {
+        width: 90vw;
+        height: 60vw;
+        max-height: 400px;
+    }
+
+    .front {
+        transform: translateZ(45vw);
+    }
+
+    .right {
+        transform: rotateY(90deg) translateZ(45vw);
+    }
+
+    .back {
+        transform: rotateY(180deg) translateZ(45vw);
+    }
+
+    .left {
+        transform: rotateY(-90deg) translateZ(45vw);
+    }
+
+    .cube-section h1 {
+        font-size: 30px;
+    }
+
+    .cube-content h2 {
+        font-size: 30px;
+    }
+
+    .cube-content p {
+        font-size: 15px;
+    }
+}

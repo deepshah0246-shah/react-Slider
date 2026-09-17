@@ -1,0 +1,170 @@
+.ken-section {
+    width: 100%;
+    background: #000;
+}
+
+.ken-slide {
+    position: relative;
+
+    width: 100%;
+    height: 650px;
+
+    overflow: hidden;
+}
+
+
+/* Image */
+
+.ken-slide img {
+    width: 100%;
+    height: 650px;
+
+    object-fit: cover;
+
+    animation: kenBurns 5s ease-in-out infinite;
+}
+
+
+/* Dark layer */
+
+.ken-slide::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.2)
+    );
+}
+
+
+/* Text */
+
+.ken-content {
+    position: absolute;
+
+    z-index: 2;
+
+    top: 50%;
+    left: 10%;
+
+    transform: translateY(-50%);
+
+    color: white;
+
+    max-width: 650px;
+
+    animation: textUp 1.2s ease;
+}
+
+.ken-content span {
+    font-size: 14px;
+
+    letter-spacing: 5px;
+
+    font-weight: bold;
+}
+
+.ken-content h1 {
+    font-size: 60px;
+
+    line-height: 1.1;
+
+    margin: 18px 0;
+}
+
+.ken-content p {
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+.ken-content button {
+    margin-top: 30px;
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+/* Image Animation */
+
+@keyframes kenBurns {
+
+    0% {
+        transform: scale(1) translateX(0);
+    }
+
+    50% {
+        transform: scale(1.12) translateX(-15px);
+    }
+
+    100% {
+        transform: scale(1) translateX(0);
+    }
+
+}
+
+
+/* Text Animation */
+
+@keyframes textUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-30%);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(-50%);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .ken-slide {
+        height: 500px;
+    }
+
+    .ken-slide img {
+        height: 500px;
+    }
+
+    .ken-content {
+        left: 25px;
+        right: 20px;
+    }
+
+    .ken-content h1 {
+        font-size: 38px;
+    }
+
+    .ken-content p {
+        font-size: 16px;
+    }
+
+}
